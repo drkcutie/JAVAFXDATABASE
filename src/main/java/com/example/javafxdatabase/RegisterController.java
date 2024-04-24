@@ -20,9 +20,12 @@ public class RegisterController {
     @FXML
     private Button accountRegister;
 
-    @FXML
-    private Button btnBack;
 
+    @FXML
+    private TextField registerFirstName;
+
+    @FXML
+    private TextField registerLastName;
     @FXML
     private TextField registerPassword;
 
@@ -41,6 +44,8 @@ public class RegisterController {
 
     @FXML
     void accountRegister(ActionEvent event) {
+        String firstname = registerFirstName.getText();
+        String lastname  = registerLastName.getText();
         String username = registerUsername.getText();
         String password = registerPassword.getText();
         if(username == "" || password == "" || username.length() < 6 || password.length() < 6)
@@ -50,15 +55,18 @@ public class RegisterController {
         }
         try(Connection c = MySQLConnection.getConnection();
             PreparedStatement statement = c.prepareStatement(
-                    "INSERT INTO users (username,password) VALUES (?,?)"
+                    "INSERT INTO users (firstname , lastname , username,password) VALUES (?,?,?,?)"
             ))
         {
-            statement.setString(1, username);
-            statement.setString(2, password);
+            statement.setString(1, firstname);
+            statement.setString(2,lastname);
+            statement.setString(3, username);
+            statement.setString(4,password);
             int rows = statement.executeUpdate();
             System.out.println("Rows inserted: " + rows);
-            System.out.println("Information successfully inserted");
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Account created successfully");
             ResultSet resultSet = statement.getResultSet();
+            backtoLogin(event);
         }catch (SQLException e)
         {
             showAlert(Alert.AlertType.ERROR,"Account exists", "Choose an another username");
@@ -70,7 +78,7 @@ public class RegisterController {
     void backtoLogin(ActionEvent event) {
         try{
             Parent registerView= FXMLLoader.load(getClass().getResource("login.fxml"));
-            Scene scene = btnBack.getScene();
+            Scene scene = accountRegister.getScene();
             scene.setRoot(registerView);
         } catch (IOException e) {
             throw new RuntimeException(e);

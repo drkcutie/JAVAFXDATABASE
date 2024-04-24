@@ -27,6 +27,12 @@ public class MySQLConnection{
         return c;
     }
 
+    static Connection createDatabase()
+    {
+        //TODO AUTOMATICALLY CREATES DATABASE
+        return null;
+    }
+
     public static void main(String[] args) {
         getConnection();
     }

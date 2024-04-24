@@ -15,13 +15,11 @@ import java.io.IOException;
 import java.sql.*;
 
 public class LoginController {
-
+    //TODO HASH THE PASSWORD
     private Stage primaryStage;
     @FXML
     private Button btnLogin;
 
-    @FXML
-    private Button btnRegister;
 
     @FXML
     private Text field;
@@ -32,8 +30,6 @@ public class LoginController {
     @FXML
     private TextField fieldUsername;
 
-    public static String username;
-    public static String password;
     @FXML
     void loginAccount(ActionEvent event) {
         try(Connection c = MySQLConnection.getConnection();
@@ -47,15 +43,24 @@ public class LoginController {
             if(resultSet.next())
             {
                 System.out.println("Successfully login");
-                username = fieldUsername.getText();
-                password = fieldPassword.getText();
-                Parent dashboard= FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+
+                UserInformation userInformation = UserInformation.getInstance();
+                userInformation.setUserId(resultSet.getInt(1));
+                userInformation.setFirstName(resultSet.getString(2));
+                userInformation.setLastName(resultSet.getString(3));
+                userInformation.setUsername(resultSet.getString(3));
+                userInformation.setPassword(resultSet.getString(4));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+                Parent dashboard = loader.load();
+                DashboardController dashboardController = loader.getController();
+                dashboardController.initialize();
                 Scene scene = btnLogin.getScene();
                 scene.setRoot(dashboard);
+
             }
             else
             {
-                RegisterController.showAlert(Alert.AlertType.ERROR,"Incorrect Credentials", "Wrong Username or Password");
+                RegisterController.showAlert(Alert.AlertType.ERROR,"Incorrect Credentials", "Wrong username or password");
                 System.out.println("Incorrect credentials");
             }
         } catch (SQLException | IOException e) {
@@ -69,7 +74,7 @@ public class LoginController {
     void registerAccount(ActionEvent event) {
         try{
             Parent registerView= FXMLLoader.load(getClass().getResource("register.fxml"));
-            Scene scene = btnRegister.getScene();
+            Scene scene = btnLogin.getScene();
             scene.setRoot(registerView);
         } catch (IOException e) {
             throw new RuntimeException(e);

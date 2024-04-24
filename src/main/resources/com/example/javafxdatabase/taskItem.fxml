@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxdatabase.TaskItemController">
+   <top>
+      <Text fx:id="taskTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" BorderPane.alignment="CENTER_LEFT">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="2.0" />
+         </BorderPane.margin>
+      </Text>
+   </top>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <center>
+      <TextArea fx:id="taskContent" editable="false" prefHeight="200.0" prefWidth="482.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <HBox prefHeight="30.0" prefWidth="494.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="114.0" spacing="5.0" style="-fx-border-color: GRAY;">
+               <children>
+                  <SVGPath content="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" stroke="#000000" />
+                  <Text fx:id="taskDeadline" strokeType="OUTSIDE" strokeWidth="0.0" text="January, 2, 2024" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="97.0" spacing="5.0" style="-fx-border-color: GRAY;">
+               <children>
+                  <SVGPath content="M12,0C5.4,0,0,5.4,0,12s5.4,12,12,12s12-5.4,12-12S18.6,0,12,0z M9.5,18.3l-5.6-5.7l1.8-1.8l3.9,3.9l8.4-8.4l1.8,1.8 L9.5,18.3z" fill="#1e1111" fillRule="EVEN_ODD" strokeWidth="2.0" />
+                  <Text fx:id="taskStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1000.0" spacing="10.0">
+               <children>
+                  <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateTask" text="Update" />
+                  <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteTask" text="Delete" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets top="2.0" />
+         </BorderPane.margin></HBox>
+       
+   </bottom>
+   <right>
+      <CheckBox fx:id="cbTask" mnemonicParsing="false" onAction="#checkTask" prefWidth="26.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin>
+      </CheckBox>
+   </right>
+</BorderPane>
