@@ -42,21 +42,21 @@ Usage:
 Snippets
 _______________________________________________________________________________________________________________________________________________________
 LOGIN
-![image](https://github.com/drkcutie/JAVAFXDATABASE/assets/114794264/9526db8e-9ee2-4fb0-9b52-3c5ac52afd80)
+![image](https://github.com/drkcutie/JAVAFXDATABASE/assets/114794264/9526db8e-9ee2-4fb0-9b52-3c5ac52afd80 =250x250)
 
 
 ADDING A TASK
 
-![image](https://github.com/drkcutie/JAVAFXDATABASE/assets/114794264/20c0ed17-fa12-474f-8036-4fcc63cb3c76)
+![image](https://github.com/drkcutie/JAVAFXDATABASE/assets/114794264/20c0ed17-fa12-474f-8036-4fcc63cb3c76 = 250x250)
 
 
 UPDATING A TASK
-![image](https://github.com/drkcutie/JAVAFXDATABASE/assets/114794264/09eefd20-857f-464c-9975-5a6865dd0970)
+![image](https://github.com/drkcutie/JAVAFXDATABASE/assets/114794264/09eefd20-857f-464c-9975-5a6865dd0970 = 250x250)
 
 
 DELETING A TASK
 
-![image](https://github.com/drkcutie/JAVAFXDATABASE/assets/114794264/edf6deb5-9d7f-4d55-8bc5-ca83e23faec8)
+![image](https://github.com/drkcutie/JAVAFXDATABASE/assets/114794264/edf6deb5-9d7f-4d55-8bc5-ca83e23faec8 = 250x250)
 
 
 
